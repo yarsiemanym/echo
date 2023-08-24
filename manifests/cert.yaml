@@ -5,7 +5,7 @@ metadata:
   namespace: echo
 spec:
   secretName: echo-cert
-  commonNames: echo.home.saltrelli.com
+  commonName: echo.home.saltrelli.com
   dnsNames:
     - echo.home.saltrelli.com
   subject:
