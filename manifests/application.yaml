@@ -15,6 +15,8 @@ spec:
     repoURL: https://github.com/yarsiemanym/echo.git
     targetRevision: HEAD
     path: manifests
+    directory: 
+      exclude: application.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: echo
