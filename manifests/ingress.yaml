@@ -7,9 +7,9 @@ metadata:
     name: echo
 spec:
   tls:
-  - secretName: wildcard-cert
+  - secretName: echo-cert
     hosts:
-    - "*.home.saltrelli.com"
+    - echo.home.saltrelli.com
   rules:
   - host: echo.home.saltrelli.com
     http:
