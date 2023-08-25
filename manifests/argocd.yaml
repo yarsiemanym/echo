@@ -1,4 +1,19 @@
 apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: echo
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: For the echo application.
+  sourceRepos:
+    - https://github.com/yarsiemanym/echo.git
+  destinations:
+    - namespace: echo
+      server: https://kubernetes.default.svc
+---
+apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: echo
@@ -6,7 +21,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  project: default
+  project: echo
   syncPolicy:
     automated:
       prune: true
@@ -16,7 +31,7 @@ spec:
     targetRevision: HEAD
     path: manifests
     directory: 
-      exclude: application.yaml
+      exclude: argocd.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: echo
